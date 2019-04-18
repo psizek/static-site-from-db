@@ -1,0 +1,5 @@
+*.pyc
+__pycache__/
+pregen_pages/
+content_staging/
+site_pages/

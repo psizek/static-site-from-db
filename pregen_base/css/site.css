@@ -1,0 +1,44 @@
+ul {
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+ul li, ul li.menu{
+	display:inline;
+}
+
+ul li.archive, ul.archive li{
+	display:block
+}
+
+ul.menu{
+   	list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align:left;
+}
+
+ul.menu > li img, img.navBar, img.navBarLeft, img.mainMenu, ul.navBar > li img{
+	height:100px;
+	border:0;
+}
+
+
+img.regComic{
+    display: block;
+        margin-left: auto;
+        margin-right: auto;
+	height:300px;
+	width:1000px;
+	border:0;
+}
+
+img.custom{
+    display: block;
+        margin-left: auto;
+        margin-right: auto;
+    width:600px;
+    border:0;
+}

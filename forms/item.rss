@@ -1,0 +1,7 @@
+        <item>
+            <title>[[title##]]</title>
+            <guid>[[url##]]</guid>
+            <link>http://example.com/all/[[url##]]</link>
+            <pubDate>[[date##]]</pubDate>
+            <description>[[desc##A NEW PAGE! I WONDER WHAT'S IN IT?!]]</description>
+        </item>
