@@ -11,17 +11,6 @@ import datetime
 class content_data:
 	iSiteNumber = 0
 	iFolderNumber = 0
-	sFolder = ''
-	dtCreated = ''
-	sContentClass = ''
-	sContentOverride = ''
-	sTitle = ''
-	sToolText = ''
-	sImgFile = ''
-
-	manual_override = '' #work on this later, if needed.
-
-	content_str = ''
 
 	def get_content_str(self,folder_obj):
 		"""gets content string. Creates content string if it doesn't already exist"""
@@ -80,10 +69,6 @@ class content_data:
 		return json_dict
 
 class folder_data:
-	sFolder = ''
-	sDefContentClass = ''
-	sTitleImg = ''
-	iFolderTotal = 0
 
 	def load_folder_dict(self,my_dict):
 		self.sFolder = my_dict['sFolder']
