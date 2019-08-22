@@ -61,6 +61,10 @@ def genItemRSS(content_obj):
 	return item_str
 
 
-def writePage(dest_path,page_str):
-	with open(dest_path,'w') as outfile:
+import os
+def writePage(folder_path, filepath, page_str):
+	"""where folder_path is a Path, and the other two parameters are strings"""
+	if not folder_path.exists():
+		os.makedirs(folder_path)
+	with open(folder_path / filepath,'w') as outfile:
 		outfile.write(page_str)

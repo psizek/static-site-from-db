@@ -10,7 +10,6 @@ from get_data_fns import *
 from page_gen_fns import *
 
 cur = Setup.cur
-dir_path = Setup.dir_path
 dest_folder = Setup.dest_folder
 
 folder_dict = {}
@@ -24,5 +23,5 @@ for content_obj in content_list:
 	item_str += genItemRSS(content_obj) + '\n'
 
 rss_page = forget.form('WLT.rss',{'item_list': item_str})
-dest_path = dest_folder + '/WLT.rss'
-writePage(dest_path,rss_page)
+filename = 'WLT.rss'
+writePage(dest_folder, filename, rss_page)

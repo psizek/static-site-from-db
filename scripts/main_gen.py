@@ -4,11 +4,11 @@
 #setup
 import data_classes
 import forget
+from pathlib import Path
 
 import shutil
 
 from setup import Setup
-dir_path = Setup.dir_path
 cur = Setup.cur
 dest_folder = Setup.dest_folder
 
@@ -31,23 +31,26 @@ content_list = getContentData('SELECT * FROM tblContent',cur)
 def writeFolderPages(dest_folder,content_obj,folder_dict):
 	folder_obj = folder_dict[content_obj.sFolder]
 	page_str = genFolderPage(content_obj,folder_obj)
-	dest_path = dest_folder + '/' + content_obj.sFolder + '/' + str(content_obj.iFolderNumber) + '.html'
-	writePage(dest_path,page_str)
+	folder_path = dest_folder / content_obj.sFolder
+	filename = str(content_obj.iFolderNumber) + '.html'
+	writePage(folder_path, filename, page_str)
 
 def writeSitePages(dest_folder,content_obj,site_obj):
 	page_str = genSitePage(content_obj,site_obj)
-	dest_path = dest_folder + '/all/' + str(content_obj.iSiteNumber) + '.html'
-	writePage(dest_path,page_str)
+	folder_path = dest_folder / 'all'
+	filename = str(content_obj.iSiteNumber) + '.html'
+	writePage(folder_path, filename, page_str)
 
 def writeIndexPages(dest_folder,folder_obj):
-	cp_page = dest_folder + '/' + folder_obj.sFolder + '/' + str(folder_obj.iFolderTotal) + '.html'
-	dest_page = dest_folder + '/' + folder_obj.sFolder + '/index.html'
+	cp_page = str(dest_folder) + '/' + folder_obj.sFolder + '/' + str(folder_obj.iFolderTotal) + '.html'
+	dest_page = str(dest_folder) + '/' + folder_obj.sFolder + '/index.html'
 	shutil.copyfile(cp_page, dest_page)
 
 def writeRandomPages(dest_folder,folder_obj):
 	page_str = genRandomPage(folder_obj.iFolderTotal)
-	dest_path = dest_folder + '/' + folder_obj.sFolder + '/random.html'
-	writePage(dest_path,page_str)
+	folder_path = dest_folder / folder_obj.sFolder
+	filename = 'random.html'
+	writePage(folder_path, filename, page_str)
 
 def writeArchivePages(dest_folder,folder_obj,title_tup_list):
 	link_list_str = ''
@@ -55,8 +58,9 @@ def writeArchivePages(dest_folder,folder_obj,title_tup_list):
 		link_list_str += genArchiveLink(title_tup[0],title_tup[1],title_tup[2])
 		link_list_str += '\n'
 	page_str = genArchivePage(link_list_str,folder_obj.sTitleImg)
-	dest_path = dest_folder + '/' + folder_obj.sFolder + '/archive.html'
-	writePage(dest_path,page_str)
+	folder_path = dest_folder / folder_obj.sFolder
+	filename = 'archive.html'
+	writePage(folder_path, filename, page_str)
 
 #generate pages
 for content_obj in content_list:

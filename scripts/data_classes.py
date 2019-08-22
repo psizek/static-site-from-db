@@ -12,6 +12,19 @@ class content_data:
 	iSiteNumber = 0
 	iFolderNumber = 0
 
+	def __init__(self):
+		self.content_str = ''
+		self.sContentClass = ''
+		self.sContentOverride = ''
+		self.sFolder = ''
+		self.sImgFile = ''
+		self.sFolder = ''
+		self.iFolderNumber = ''
+		self.iSiteNumber = ''
+		self.sTitle = ''
+		self.sToolText = ''
+		self.dtCreated = ''
+
 	def get_content_str(self,folder_obj):
 		"""gets content string. Creates content string if it doesn't already exist"""
 		if self.content_str == '':

@@ -54,7 +54,7 @@ class Form:
 #---------
 #file operations
 
-import os
+from pathlib import Path
 def form(form_file,form_dict):
 	"""
 	generates a return string from form function.
@@ -63,8 +63,8 @@ def form(form_file,form_dict):
 	:param form_dict: how to perform form replacements.
 	"""
 
-	root_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), os.pardir) #parent directory
-	form_file = root_path + '/forms/' + form_file
+	root_path = Path(__file__).absolute().parent.parent
+	form_file = root_path / 'forms' / form_file
 	with open(form_file,'r') as fin:
 		f = Form(fin.read(),form_dict)
 	return f.form_eval()

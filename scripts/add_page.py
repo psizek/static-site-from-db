@@ -1,3 +1,4 @@
+from pathlib import Path
 import data_classes
 import sqlite3
 
@@ -49,11 +50,8 @@ content_obj = makeContentObj(titleInput,contentClassInput, toolTextInput)
 
 #note that image must be named 'target.png'
 def mvImgFile(dir_path,folder_name,content_obj):
-	from pathlib import Path
-	dest_path_name = dir_path + '/pregen_content/img/' + folder_name + '/' + content_obj.sImgFile
-	dest_path = Path(dest_path_name)
-	source_path_name = dir_path + '/content_staging/target.png'
-	source_path = Path(source_path_name)
+	dest_path = dir_path / 'pregen_content' / 'img' / folder_name / content_obj.sImgFile
+	source_path = dir_path / 'content_staging' / 'target.png'
 	source_path.rename(dest_path)
 
 mvImgFile(dir_path,folder_name,content_obj)
